@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #222;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contador {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.limite {
+  text-align: center;
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.talleres {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.tarjeta {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.tarjeta h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.tarjeta p {
+  color: #666;
+}
+
+.inscrito {
+  font-weight: bold;
+  color: #333 !important;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+.cancelar {
+  background-color: #666;
+  margin-left: 8px;
+}
+
+.cancelar:hover {
+  background-color: #444;
+}
+
+.resumen {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 940px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.resumen h2 {
+  margin-top: 0;
+}
+
+.cancelar-todas {
+  background-color: #222;
+}
+
+.cancelar-todas:hover {
+  background-color: #444;
+}
+
+@media (max-width: 700px) {
+
+  body {
+    padding: 20px 10px;
+  }
+
+  .talleres {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tarjeta {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .cancelar {
+    margin-left: 0;
+  }
+}

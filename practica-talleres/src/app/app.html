@@ -1,0 +1,90 @@
+<h1>{{ title }}</h1>
+
+<p class="contador">
+  Talleres seleccionados: {{ inscritos().length }}
+</p>
+
+@if (inscritos().length >= 2) {
+  <p class="limite">
+    Has alcanzado el máximo de dos talleres
+  </p>
+}
+
+<section class="talleres">
+
+  @for (taller of talleres(); track taller.id) {
+
+    <article class="tarjeta">
+
+      <h2>{{ taller.name }}</h2>
+
+      <p>
+        Duración: {{ taller.duracion }}
+      </p>
+
+      <button
+        type="button"
+        (click)="inscribirse(taller.id)"
+        [disabled]="
+          inscritos().includes(taller.id) ||
+          inscritos().length >= 2
+        "
+      >
+        Inscribirme
+      </button>
+
+      @if (inscritos().includes(taller.id)) {
+
+        <p class="inscrito">
+          Ya estás inscrito
+        </p>
+
+        <button
+          type="button"
+          class="cancelar"
+          (click)="cancelarInscripcion(taller.id)"
+        >
+          Cancelar inscripción
+        </button>
+
+      }
+
+    </article>
+
+  }
+
+</section>
+
+
+<section class="resumen">
+
+  <h2>Resumen de inscripciones</h2>
+
+  @if (talleresSeleccionados().length === 0) {
+
+    <p>
+      Todavía no has seleccionado talleres
+    </p>
+
+  } @else {
+
+    @for (taller of talleresSeleccionados(); track taller.id) {
+
+      <p>
+        {{ taller.name }} - {{ taller.duracion }}
+      </p>
+
+    }
+
+  }
+
+  <button
+    type="button"
+    class="cancelar-todas"
+    (click)="cancelarTodas()"
+    [disabled]="inscritos().length === 0"
+  >
+    Cancelar todas las inscripciones
+  </button>
+
+</section>
