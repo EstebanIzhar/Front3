@@ -1,0 +1,64 @@
+<main class="contenedor">
+
+  <h1>Catálogo de productos</h1>
+
+  <div class="buscador">
+    <label for="buscar">Buscar por nombre</label>
+
+    <input
+      id="buscar"
+      type="text"
+      #campoBusqueda
+      [value]="busqueda()"
+      (input)="actualizarBusqueda(campoBusqueda.value)"
+      placeholder="Escribe el nombre de un producto"
+    >
+  </div>
+
+  <p class="contador">
+    Productos encontrados: {{ productosFiltrados().length }}
+  </p>
+
+  @if (productosFiltrados().length === 0) {
+    <p class="sin-resultados">
+      No se encontraron productos
+    </p>
+  }
+
+  <section class="catalogo">
+
+    @for (producto of productosFiltrados(); track producto.id) {
+
+      <article class="tarjeta">
+
+        <h2>{{ producto.nombre | uppercase }}</h2>
+
+        <p>
+          <strong>Categoría:</strong>
+          {{ producto.categoria }}
+        </p>
+
+        <p>
+          <strong>Precio:</strong>
+          {{ producto.precio | currency:'MXN':'symbol':'1.2-2' }}
+        </p>
+
+        <p>
+          <strong>Existencias:</strong>
+          {{ producto.existencias }}
+        </p>
+
+        <p
+          class="disponibilidad"
+          [class.agotado]="producto.existencias === 0"
+        >
+          {{ producto.existencias | disponibilidad }}
+        </p>
+
+      </article>
+
+    }
+
+  </section>
+
+</main>

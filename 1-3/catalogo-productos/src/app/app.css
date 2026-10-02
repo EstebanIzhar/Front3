@@ -1,0 +1,157 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #f1f1f1;
+  color: #222;
+}
+
+.contenedor {
+  width: min(1100px, 90%);
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* Título */
+
+h1 {
+  text-align: center;
+  margin: 0 0 30px;
+  font-size: 32px;
+  color: #111;
+}
+
+/* Buscador */
+
+.buscador {
+  background: #ffffff;
+  padding: 20px;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+.buscador label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.buscador input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: #fafafa;
+  color: #222;
+  font-size: 16px;
+  outline: none;
+}
+
+.buscador input:focus {
+  border-color: #555;
+  background: #fff;
+}
+
+/* Contador */
+
+.contador {
+  margin: 20px 0;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Catálogo */
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Tarjetas */
+
+.tarjeta {
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.14);
+}
+
+.tarjeta h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 21px;
+  color: #111;
+}
+
+.tarjeta p {
+  margin: 10px 0;
+  color: #444;
+}
+
+.tarjeta strong {
+  color: #222;
+}
+
+/* Disponibilidad */
+
+.disponibilidad {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #d9d9d9;
+  color: #222;
+  font-weight: bold;
+}
+
+.disponibilidad.agotado {
+  background: #222;
+  color: #ffffff;
+}
+
+/* Sin resultados */
+
+.sin-resultados {
+  padding: 20px;
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  color: #444;
+}
+
+/* Adaptación para tablets */
+
+@media (max-width: 800px) {
+  .catalogo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Adaptación para celulares */
+
+@media (max-width: 550px) {
+  .catalogo {
+    grid-template-columns: 1fr;
+  }
+
+  .contenedor {
+    width: 92%;
+    padding: 25px 0;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}
